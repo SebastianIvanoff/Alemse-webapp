@@ -1,0 +1,75 @@
+.Navbar-container {
+  .off-screen.menu {
+    background-color: rgb(34, 37, 49);
+    height: 100vh;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px; // Added "px" unit
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease;
+  }
+
+  .off-screen.menu.active {
+    right: 0;
+  }
+
+  nav {
+    background-color: rgb(34, 37, 49);
+    display: flex;
+    padding: 1rem;
+  }
+
+  .ham-menu {
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+
+    span {
+      height: 5px;
+      width: 100%;
+      background-color: #6f86ff;
+      border-radius: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-53%, -50%);
+      transition: 0.3s ease;
+    }
+
+    span:nth-child(1) {
+      top: 25%;
+    }
+
+    span:nth-child(2) {
+      top: 75%;
+    }
+
+    span:nth-child(3) {
+      top: 75%; // Added missing selector for the third span
+    }
+
+    // Styles when ham-menu is active
+    &.active {
+      span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}
